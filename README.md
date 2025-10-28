@@ -1,5 +1,5 @@
-# test-homework
-homework
+B 형 서술형 숙제
+
 9번: 카디널리티(Cardinality)와 디그리(Degree)를 각각 정의하시오.
 카디널리티(Cardinality) : 테이블의 행(튜플) 개수
 디그리(Degree):테이블의 열(속성) 개수 
