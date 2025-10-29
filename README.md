@@ -112,35 +112,66 @@ REDO 수행가능 하고 하지만 UNDO 수행 여부는 불필요하다
 
 ## 15번 : 접근통제(DAC/MAC/RBAC)의 차이와 SQL 차원에서 관리자 관점의 통제 예시 1개씩을 제시하시오.
 # 임의 접근 통제(DAC)Discretionary AC
+
 . 사용자의 신원/신분에 따라 접근 권한 부여
+
 . 데이터 소유자가 접근 통제 권한 지정/제어
+
 . 객체 생성자가 모든 권한 갖고, 다른 사용자에게 허가
+
 . SQL 명령어 : GRANT / REVOKE	or GRANT SELECT ON Students TO studuser;
+
 # 강제 접근 통제(MAC)Mandatory AC
+
 . 주체와 객체의 등급을 비교 후 시스템이 접근 권한 부여
+
 . DB 객체별로 보안 등급 부여 및 사용자별로 인가 등급 부여
+
 . 자신보다 보안 높은 객체에 읽기/수정/등록 불가하나 등급 같
+
 은 객체에는 모두 가능, 자신보다 낮은 객체에는 읽기 가능
+
 # 역할 기반 접근 통제(RBAC) Role-based AC
+
 . 사용자의 역할에 따라 접근 권한 부여 (중앙관리자가 지정)
+
 . 다중 프로그래밍에 최적화
+
 . SQL 명령어: GRANT role_student TO studuser;
 
-16번:관계대수 σ/π/조인을 각각 간단 예제로 설명하고, SQL로의 매핑 키워드(WHERE, SELECT 컬럼, JOIN … ON)를 대응시키시오.
-σ Select (선택) 조건을 만족하는 튜플들의 부분 집합 (수평 연산)   간단예제: σ_dept='CS'(Students) → CS 학과 학생만 선택,SQL 대응 키워드: WHERE dept='CS'
-ㅠ Project (추출) 속성들의 부분 집합, 중복 제거 (수직 연산)	간단예제:π_name, sid(Students) → 학생 이름과 학번만 추출 SQL 대응 키워드:SELECT name, sid
-▷◁ Join (조인) 두 개의 릴레이션을 하나로 합쳐 새로운 릴레이션 형성 간단예제: Students ⋈ Courses → 학생과 수강 정보 결합 SQL 대응 키워드 JOIN ... ON Students.cid = Courses.cid
-÷ Division (나누기)
+---
+
+## 16번:관계대수 σ/π/조인을 각각 간단 예제로 설명하고, SQL로의 매핑 키워드(WHERE, SELECT 컬럼, JOIN … ON)를 대응시키시오.
+
+# σ Select (선택) 조건을 만족하는 튜플들의 부분 집합 (수평 연산)   간단예제: σ_dept='CS'(Students) → CS 학과 학생만 선택,SQL 대응 키워드: WHERE dept='CS'
+
+# ㅠ Project (추출) 속성들의 부분 집합, 중복 제거 (수직 연산)	간단예제:π_name, sid(Students) → 학생 이름과 학번만 추출 SQL 대응 키워드:SELECT name, sid
+
+# ▷◁ Join (조인) 두 개의 릴레이션을 하나로 합쳐 새로운 릴레이션 형성 간단예제: Students ⋈ Courses → 학생과 수강 정보 결합 SQL 대응 키워드 JOIN ... ON Students.cid = Courses.cid
+
+# ÷ Division (나누기)
 A의 속성이 B의 속성 값을 모두 가진 튜플에서 (A⊃B)
+
 B가 가진 속성을 제외한 나머지 속성들만 추출
 
-17번:뷰(View)의 장단점 2가지씩과, 뷰로는 곤란한 작업(예: ALTER 구조 변경 등)을 1가지 쓰시오.
-뷰 (View)
+---
+
+## 17번:뷰(View)의 장단점 2가지씩과, 뷰로는 곤란한 작업(예: ALTER 구조 변경 등)을 1가지 쓰시오.
+
+
+# 뷰 (View)
 장점 : 논리적 데이터 독립성 제공 / 데이터 자동 보안 제공 / 데이터 관리 용이
+
 단점 : 독립적 인덱스 보유 불가 / ALTER 변경 불가 / 삽입, 삭제, 갱신, 연산 제약
+
 뷰 자체에 트리거를 직접 설정할 수 없기 때문에 일부 자동 동작을 구현하기 어렵습니다.
 
-18번: MySQL 실습 환경 구축 시 필수 점검 항목 3가지를 쓰고, 각 항목에 대한 확인 SQL 또는 명령을 1개씩 제시하시오.
+
+## 18번: MySQL 실습 환경 구축 시 필수 점검 항목 3가지를 쓰고, 각 항목에 대한 확인 SQL 또는 명령을 1개씩 제시하시오.
 서버 실행 여부 → systemctl status mysql
+
 사용자 계정/권한 확인 → SELECT User, Host FROM mysql.user;
+
 데이터베이스 생성/접근 확인 → SHOW DATABASES;
+
+---
