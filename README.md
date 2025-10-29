@@ -143,13 +143,20 @@ REDO 수행가능 하고 하지만 UNDO 수행 여부는 불필요하다
 
 ## 16번:관계대수 σ/π/조인을 각각 간단 예제로 설명하고, SQL로의 매핑 키워드(WHERE, SELECT 컬럼, JOIN … ON)를 대응시키시오.
 
-# σ Select (선택) 조건을 만족하는 튜플들의 부분 집합 (수평 연산)   간단예제: σ_dept='CS'(Students) → CS 학과 학생만 선택,SQL 대응 키워드: WHERE dept='CS'
+# σ Select (선택)
 
-# ㅠ Project (추출) 속성들의 부분 집합, 중복 제거 (수직 연산)	간단예제:π_name, sid(Students) → 학생 이름과 학번만 추출 SQL 대응 키워드:SELECT name, sid
+조건을 만족하는 튜플들의 부분 집합 (수평 연산)   간단예제: σ_dept='CS'(Students) → CS 학과 학생만 선택,SQL 대응 키워드: WHERE dept='CS'
 
-# ▷◁ Join (조인) 두 개의 릴레이션을 하나로 합쳐 새로운 릴레이션 형성 간단예제: Students ⋈ Courses → 학생과 수강 정보 결합 SQL 대응 키워드 JOIN ... ON Students.cid = Courses.cid
+# ㅠ Project (추출)  
+
+속성들의 부분 집합, 중복 제거 (수직 연산)	간단예제:π_name, sid(Students) → 학생 이름과 학번만 추출 SQL 대응 키워드:SELECT name, sid
+
+# ▷◁ Join (조인)
+
+두 개의 릴레이션을 하나로 합쳐 새로운 릴레이션 형성 간단예제: Students ⋈ Courses → 학생과 수강 정보 결합 SQL 대응 키워드 JOIN ... ON Students.cid = Courses.cid
 
 # ÷ Division (나누기)
+
 A의 속성이 B의 속성 값을 모두 가진 튜플에서 (A⊃B)
 
 B가 가진 속성을 제외한 나머지 속성들만 추출
